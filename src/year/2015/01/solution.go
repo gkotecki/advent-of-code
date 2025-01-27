@@ -1,23 +1,20 @@
 package main
 
 import (
-	"bufio"
+	_ "embed"
 	"fmt"
-	"os"
+	"strings"
 )
 
+//go:embed input.txt
+var input string
+
 func main() {
-	Part2()
+	input = strings.TrimSpace(input)
+	part2()
 }
 
-func Part1() {
-	scanner := bufio.NewScanner(os.Stdin)
-
-	input := ""
-	for scanner.Scan() {
-		input += scanner.Text()
-	}
-
+func part1() {
 	floor := 0
 	for _, char := range input {
 		switch char {
@@ -31,14 +28,7 @@ func Part1() {
 	fmt.Println(floor)
 }
 
-func Part2() {
-	scanner := bufio.NewScanner(os.Stdin)
-
-	input := ""
-	for scanner.Scan() {
-		input += scanner.Text()
-	}
-
+func part2() {
 	floor := 0
 	for i, char := range input {
 		switch char {
