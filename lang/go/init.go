@@ -34,7 +34,7 @@ func main() {
 	defer input.Close()
 
 	// Construct solution path
-	solutionPath := filepath.Join("src", "year", year, day, fmt.Sprintf("part%s.go", part))
+	solutionPath := filepath.Join("year", year, day, fmt.Sprintf("part%s.go", part))
 
 	// Run the solution with input piped to stdin
 	cmd := exec.Command("go", "run", solutionPath)
@@ -59,7 +59,7 @@ func DownloadInput(year, day string) (string, error) {
 		return "", fmt.Errorf("session.cookie file is empty")
 	}
 
-	inputPath := filepath.Join("src", "year", year, day, "input.txt")
+	inputPath := filepath.Join("year", year, day, "input.txt")
 	if _, err := os.Stat(inputPath); err == nil {
 		return inputPath, nil // File already exists
 	}
